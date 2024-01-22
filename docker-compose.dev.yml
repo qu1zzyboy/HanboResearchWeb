@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  myblog:
+    build:
+      context: .
+      args:
+        NODE_ENV: development
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=development
+      - MONGO_USER=Hanbo
+      - MONGO_PASSWORD=lhb1999114
+      - SESSION_SECRET=secret
+    command: npm run dev
+
+  mongo:
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=Hanbo
+      - MONGO_INITDB_ROOT_PASSWORD=lhb1999114
